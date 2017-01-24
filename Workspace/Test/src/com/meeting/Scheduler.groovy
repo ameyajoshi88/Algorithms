@@ -74,6 +74,7 @@ class Scheduler {
             if((Math.min(user1Slot.end, user2Slot.end) - Math.max(user1Slot.start, user2Slot.start)) >= duration) {
                 result = new TimeSlot(Math.max(user1Slot.start, user2Slot.start),
                                       Math.max(user1Slot.start, user2Slot.start) + duration)
+                break // gives first available slot
             }
             if(user1Slot.end >= user2Slot.end) {
                 j++
@@ -90,5 +91,6 @@ class SchedulerTest {
     static void main(String[] args) {
         assert [] == Scheduler.schedule([ [0L, 5L], [10L, 20L] ], [ [0L, 2L], [12L, 20L] ], 10L)
         assert [12L, 19L] == Scheduler.schedule([ [0L, 5L], [10L, 20L] ], [ [0L, 2L], [12L, 20L] ], 7L)
+        assert [0L, 2L] == Scheduler.schedule([ [0L, 5L], [10L, 20L] ], [ [0L, 2L], [12L, 20L] ], 2L)
     }
 }
