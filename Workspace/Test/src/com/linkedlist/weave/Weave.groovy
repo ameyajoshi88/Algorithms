@@ -60,7 +60,7 @@ class Weave {
 
     static Node createLinkedList(List<String> data) {
         if(data == null || data.isEmpty()) {
-            return
+            return null
         }
         Node head = new Node(data[0])
         Node previous = head
@@ -76,10 +76,15 @@ class Weave {
 class WeaveTester {
     static void main(String[] args) {
         Node n1 = Weave.createLinkedList(['A1', 'B1', 'C1', 'A2', 'B2', 'C2'])
-        print("Before: ")
+        print('Before: ')
         Weave.printList(n1)
-        print("After: ")
+        print('After: ')
         Weave.weave(n1)
         Weave.printList(n1)
     }
 }
+
+// Output:
+//
+// Before: A1 -> B1 -> C1 -> A2 -> B2 -> C2 -> END
+// After: A1 -> A2 -> B1 -> B2 -> C1 -> C2 -> END
