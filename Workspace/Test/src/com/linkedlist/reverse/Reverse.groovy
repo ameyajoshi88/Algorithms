@@ -40,14 +40,17 @@ class Reverse {
         if (head == null) {
             return null
         }
-        return reverseRecursive(head)
+        return reverseRecursiveHelper(head)
     }
 
     static Node reverseRecursiveHelper(Node node) {
         if (node.next == null) {
             return node
         }
-        return reverseRecursiveHelper(node.next).next = node
+        Node reverseOfRest = reverseRecursiveHelper(node.next)
+        node.next.next = node
+        node.next = null
+        return reverseOfRest
     }
 
     static void printList(Node head) {
@@ -89,7 +92,7 @@ class ReverseTester {
         print('Before: ')
         Reverse.printList(n1)
         print('After: ')
-        n1 = Reverse.reverseIterative(n1)
+        n1 = Reverse.reverseRecursive(n1)
         Reverse.printList(n1)
     }
 }
