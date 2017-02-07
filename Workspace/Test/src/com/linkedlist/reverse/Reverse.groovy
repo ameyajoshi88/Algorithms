@@ -80,7 +80,7 @@ class Reverse {
 class ReverseTester {
     static void main (String[] args) {
         Node n1 = Reverse.createLinkedList(['A1', 'B1', 'C1', 'A2', 'B2', 'C2'])
-        println('Iterational')
+        println('Iterative')
         println('===========')
         print('Before: ')
         Reverse.printList(n1)
@@ -99,7 +99,7 @@ class ReverseTester {
 
 // Output:
 //
-// Iterational
+// Iterative
 // ===========
 // Before: A1 -> B1 -> C1 -> A2 -> B2 -> C2 -> END
 // After: C2 -> B2 -> A2 -> C1 -> B1 -> A1 -> END
