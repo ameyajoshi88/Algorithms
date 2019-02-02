@@ -13,32 +13,31 @@ import groovy.transform.CompileStatic
 
 @CompileStatic
 class BinaryStrings {
-	
-	public BinaryStrings(int n) {
-		this.n = n;
-	}
 
-	int n
-	Set<String> result = []
-	
-	void generate() {
-		binaryStrings('')
-	}
-	
-	void binaryStrings(String s) {
-		if (n == s.length()) {
-			result << s
-			return
-		}
-		binaryStrings("0${s}")
-		binaryStrings("1${s}")
-	}
-	
-	public static void main(String[] args) {
-		BinaryStrings binaryStrings = new BinaryStrings(3)
-		binaryStrings.generate()
-		assert 8 == binaryStrings.result.size()
-		println(binaryStrings.result)
-	}
-	
+  public BinaryStrings(int n) {
+    this.n = n;
+  }
+
+  int n
+  Set<String> result = []
+
+  void generate() {
+    binaryStrings('')
+  }
+
+  void binaryStrings(String s) {
+    if (n == s.length()) {
+      result << s
+      return
+    }
+    binaryStrings("0${s}")
+    binaryStrings("1${s}")
+  }
+
+  public static void main(String[] args) {
+    BinaryStrings binaryStrings = new BinaryStrings(3)
+    binaryStrings.generate()
+    assert 8 == binaryStrings.result.size()
+    println(binaryStrings.result)
+  }
 }

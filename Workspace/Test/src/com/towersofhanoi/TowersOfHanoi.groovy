@@ -17,20 +17,19 @@ import groovy.transform.CompileStatic
 
 @CompileStatic
 class TowersOfHanoi {
-	
-	static void solution(List<Integer> discs, char src, char dest, char aux) {
-		if (discs.size() == 1) {
-			println("Move disk ${discs.first()} from ${src} to ${dest}")
-		}
-		else {
-			solution(discs.subList(0, discs.size() - 1), src, aux, dest)
-			println("Move disk ${discs.last()} from ${src} to ${dest}")
-			solution(discs.subList(0, discs.size() - 1), aux, dest, src)
-		}
-	}
-	
-	public static void main(String[] args) {
-		solution([1, 2, 3], 'A' as char, 'B' as char, 'C' as char)
-	}
-	
+
+  static void solution(List<Integer> discs, char src, char dest, char aux) {
+    if (discs.size() == 1) {
+      println("Move disk ${discs.first()} from ${src} to ${dest}")
+    }
+    else {
+      solution(discs.subList(0, discs.size() - 1), src, aux, dest)
+      println("Move disk ${discs.last()} from ${src} to ${dest}")
+      solution(discs.subList(0, discs.size() - 1), aux, dest, src)
+    }
+  }
+
+  public static void main(String[] args) {
+    solution([1, 2, 3], 'A' as char, 'B' as char, 'C' as char)
+  }
 }
