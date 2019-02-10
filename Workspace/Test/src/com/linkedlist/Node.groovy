@@ -26,4 +26,13 @@ class Node {
     }
     return head
   }
+  
+  static void printList(Node head) {
+    Node node = head
+    while (node != null) {
+        print("${node.data} -> ")
+        node = node.next
+    }
+    println('END')
+  }
 }
