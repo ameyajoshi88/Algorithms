@@ -35,4 +35,31 @@ class Node {
     }
     println('END')
   }
+  
+  static void printListInReverse(Node head) {
+    if (head == null) {
+      return
+    }
+    printListInReverseHelper(head)
+    print("${head.data} <- START")
+  }
+  
+  static Node printListInReverseHelper(Node node) {
+    if (node.next == null) {
+      return node
+    }
+    Node headOfRest = printListInReverseHelper(node.next)
+    print("${headOfRest.data} <- ")
+    return node
+  }
+  
+  static int length(Node head) {
+    Node node = head
+    int n = 0
+    while (node != null) {
+        n++
+        node = node.next
+    }
+    return n
+  }
 }
