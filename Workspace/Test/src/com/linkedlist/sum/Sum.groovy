@@ -41,8 +41,7 @@ class Sum {
       int v2 = l2 != null ? Integer.parseInt(l2.data) : 0
       int sum = v1 + v2 + carry
       carry = sum / 10 as int
-      int val = ((l1 != null && l1.next != null)
-          || (l2 != null && l2.next != null)) ? sum % 10 : sum
+      int val = sum % 10
       current = new Node(val as String)
       if (previous == null) {
         result = current
@@ -57,6 +56,9 @@ class Sum {
       if (l2 != null) {
         l2 = l2.next
       }
+    }
+    if (carry > 0) {
+      previous.next = new Node(carry as String)
     }
     return result
   }
@@ -92,6 +94,19 @@ class Sum {
     Node summed2 = sum2.sum()
     print('     Sum: ')
     Node.printList(summed2)
+    println('============================')
+    Node n41 = new Node('5')
+    Node head4 = Node.buildList([n41])
+    Node n51 = new Node('5')
+    Node head5 = Node.buildList([n51])
+    Sum sum3 = new Sum(head4, head5)
+    print('Number 1: ')
+    Node.printList(head4)
+    print('Number 2: ')
+    Node.printList(head5)
+    Node summed3 = sum3.sum()
+    print('     Sum: ')
+    Node.printList(summed3)
   }
 }
 
@@ -104,3 +119,7 @@ class Sum {
 // Number 1: 2 -> 4 -> END
 // Number 2: 5 -> 6 -> 4 -> END
 //      Sum: 7 -> 0 -> 5 -> END
+// ============================
+// Number 1: 5 -> END
+// Number 2: 5 -> END
+//      Sum: 0 -> 1 -> END
